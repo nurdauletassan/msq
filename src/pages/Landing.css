@@ -1,0 +1,44 @@
+/* src/pages/Landing.css */
+.landing-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 70px;
+  }
+  
+  .landing-title {
+    
+    flex: 1; /* Take 50% of the parent */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:18x;
+    padding: 100px 10px;
+    
+  }
+  .landing-title h2{
+    font-weight: bold;
+  }
+  
+  .landing-image {
+    flex: 1; /* Take 50% of the parent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .landing-image img {
+    max-width: 80%;
+    height: auto;
+  }
+  .vertical-line{
+    width: 2px;
+    padding: 0px;
+    background-color: #8f8e8e;
+    height: 65px;
+  }
+  .number-info{
+    display: flex;
+    gap: 25px;
+  }
+  

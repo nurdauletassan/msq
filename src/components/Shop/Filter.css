@@ -1,0 +1,16 @@
+.filter-container {
+    display: flex; /* Arrange items horizontally */
+    flex-direction: column; /* Allow items to wrap if needed */
+    min-width: 295px;
+    max-width: 295px;
+    gap: 20px; /* Spacing between filter items */
+    padding: 20px; /* Add padding around the container */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
+    border-radius: 20px;/* Rounded corners */
+    background-color: #c6c1c1; /* Light background for contrast */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+  }
+  
+ 
+  
+ 

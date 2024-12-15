@@ -1,0 +1,45 @@
+/* src/components/ShopDropdown.css */
+.shop-dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 19px;
+    border-radius: 4px;
+    z-index: 1000;
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 600px; /* Задайте минимальную ширину */
+    transition: opacity 0.3s ease-in; /* Плавное отображение *//* Добавляем плавное изменение при открытии/закрытии */
+  }
+  
+  .shop-dropdown-content:hover {
+    opacity: 1; /* Оставляем меню видимым при наведение мыши на него */
+  }
+  
+  .shop-dropdown-link {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 8px;
+    border-radius: 4px;
+    color: black;
+    transition: background-color 0.3s;
+  }
+  
+  .shop-dropdown-link:hover {
+    background-color: #e5e5e5;
+  }
+  
+  .shop-dropdown-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns of equal width */
+    grid-template-rows: repeat(2, auto); /* 2 rows with auto height (squares) */
+    gap: 12px; /* Space between the items */
+  }
+  
+  .shop-dropdown-link p {
+    color: #6B7280;
+  }
+  
