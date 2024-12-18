@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Filter from "../components/Shop/Filter";
 import Breadcrumb from "../components/Breadcrumb";
+import ProductCard from '../components/Shop/ProductCard'
 import "./Shop.css";
 
 const ShopPage = () => {
@@ -11,7 +12,7 @@ const ShopPage = () => {
 
   useEffect(() => {
     fetch(
-      "https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/products/list?country=us&lang=en&currentpage=0&pagesize=30&categories=men_all&concepts=H%26M%20MAN",
+      "https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/products/list?country=us&lang=en&currentpage=0&pagesize=36&categories=men_all&concepts=H%26M%20MAN",
       {
         method: "GET",
         headers: {
@@ -40,16 +41,14 @@ const ShopPage = () => {
       <div className="filter-catalog">
         <Filter />
         <div className="products-grid">
-          {products.map((product) => (
+          {products.map((product, index) => (
             <Link
               to={`/product/${product.articleCode}`}
               key={product.articleCode}
               style={{ textDecoration: "none" }}
             >
-              <div className="product-card">
-                <img src={product.images[0].url} alt={product.name} />
-                <h3>{product.name}</h3>
-              </div>
+              <ProductCard key={product.articleCode || index} product={product} />
+              
             </Link>
           ))}
         </div>
@@ -59,3 +58,4 @@ const ShopPage = () => {
 };
 
 export default ShopPage;
+  
