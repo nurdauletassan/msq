@@ -12,15 +12,15 @@ const ShopDropdown = () => {
         </a>
         <a href="/womens" className="shop-dropdown-link">
           <div className="text-sm font-medium leading-none">Women's clothes</div>
-          <p class="line-clamp-2 text-sm leading-snug text-muted-foreground">Ladies, your style and tastes are important to us</p>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">Ladies, your style and tastes are important to us</p>
         </a>
         <a href="/kids" className="shop-dropdown-link">
           <div className="text-sm font-medium leading-none">Kids clothes</div>
-          <p class="line-clamp-2 text-sm leading-snug text-muted-foreground">For all ages, with happy and beautiful colors</p>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">For all ages, with happy and beautiful colors</p>
         </a>
         <a href="/shoes" className="shop-dropdown-link">
           <div className="text-sm font-medium leading-none">Bags and Shoes</div>
-          <p class="line-clamp-2 text-sm leading-snug text-muted-foreground">Suitable for men, women and all tastes and styles</p>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">Suitable for men, women and all tastes and styles</p>
         </a>
       </div>
     </div>
