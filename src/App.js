@@ -7,6 +7,7 @@ import Landing from './pages/Landing';
 import Shop from './pages/Shop';
 import Login from './pages/Login';
 import ProductDetails from './pages/ProductDetails';
+import Register from './pages/Register';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -23,6 +24,7 @@ function App() {
           <Route path='/shop' element={<Shop/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path="/product/:productId" element={<ProductDetails addToCart={addToCart} />} />
+          <Route path='/register' element={<Register/>}/>
         </Routes>
         <Footer/>
         
