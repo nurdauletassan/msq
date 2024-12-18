@@ -9,6 +9,7 @@ const ShopPage = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  
 
   useEffect(() => {
     fetch(
@@ -43,7 +44,7 @@ const ShopPage = () => {
         <div className="products-grid">
           {products.map((product, index) => (
             <Link
-              to={`/product/${product.articleCode}`}
+              to={`/shop/${product.articleCode}`}
               key={product.articleCode}
               style={{ textDecoration: "none" }}
             >

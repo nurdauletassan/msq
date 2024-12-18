@@ -17,13 +17,14 @@ function App() {
   };
   return (
     <Router>
-      <div>
+      <div> 
+        
         <Header/>
         <Routes>
           <Route path='/' element={<Landing/>}/>
           <Route path='/shop' element={<Shop/>}/>
           <Route path='/login' element={<Login/>}/>
-          <Route path="/product/:productId" element={<ProductDetails addToCart={addToCart} />} />
+          <Route path="/shop/:productId" element={<ProductDetails addToCart={addToCart} />} />
           <Route path='/register' element={<Register/>}/>
         </Routes>
         <Footer/>
