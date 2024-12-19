@@ -7,8 +7,18 @@
     padding: 20px; /* Add padding around the container */
     border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
     border-radius: 20px;/* Rounded corners */
-    background-color: #c6c1c1; /* Light background for contrast */
+    background-color: #f1eeee; /* Light background for contrast */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+    font-family: "Montserrat", sans-serif;
+  }
+  .filter-item{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+  }
+  .filter-item span{
+    font-weight: bold;
+    font-size: 20px;
   }
   
  

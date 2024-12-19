@@ -49,6 +49,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
+  text-align: center;
+    
+
 }
 
 .header-link:hover .dropdown-arrow {
@@ -65,6 +69,8 @@
 .shop-dropdown-wrapper {
   position: relative;
   display: inline-block;
+ 
+  
   
 }
 .cart-profile{
@@ -72,5 +78,9 @@
   gap: 40px;
   align-items: center;
   justify-content: center;
+}
+.shop-arrow p{
+  color: white;
+  margin: 0;
 }
 

@@ -1,0 +1,20 @@
+.sizes-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 boxes in one row */
+    gap: 8px; /* Spacing between boxes */
+  }
+  
+  .size-box {
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+    border: 1px solid #d9d9d9;
+    padding: 5px 0;
+    margin: 0 10px 10px 0;
+  }
+  
+  .size-box.selected {
+    background-color: #000;
+    color: #fff;
+  }
+  
