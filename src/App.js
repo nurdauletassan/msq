@@ -6,6 +6,8 @@ import Footer from './components/Footer';
 import Landing from './pages/Landing';
 import Shop from './pages/Shop';
 import Login from './pages/Login';
+import Cart from './pages/Cart';
+import Favourite from './pages/Favourite';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
           <Route path='/' element={<Landing/>}/>
           <Route path='/shop' element={<Shop/>}/>
           <Route path='/login' element={<Login/>}/>
+          <Route path='/cart' element={<Cart/>}/>
+          <Route path='/favourite' element={<Favourite/>}/>
         </Routes>
         <Footer/>
         
