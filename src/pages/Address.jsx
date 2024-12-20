@@ -40,6 +40,7 @@ const Address = () => {
           value={formData.firstName}
           onChange={handleChange}
           required
+          
         />
 
         <input

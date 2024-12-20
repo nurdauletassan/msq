@@ -1,7 +1,7 @@
 import React from 'react'
-import ShopButton from '../components/Landing/ShopButton'
+import ShopButton from '../../components/Landing/ShopButton'
 import './Landing.css'
-import man from '../images/landingImage.png'
+import man from '../../shared/images/landingImage.png'
 
 function Landing() {
   return (

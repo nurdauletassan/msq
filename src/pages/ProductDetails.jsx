@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Breadcrumb from "../components/Breadcrumb";
-import db from "../config/FirebaseConfig";
-import rating from "../images/rating.svg";
-import likes from "../images/likes.svg";
+import Breadcrumb from "../shared/ui/Breadcrump/Breadcrumb";
+import db from "../app/config/FirebaseConfig";
+import rating from "../shared/images/rating.svg";
+import likes from "../shared/images/likes.svg";
 import Modal from "../components/ProductDetails/Modal";
 import "./ProductDetails.css";
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../useStore/cartActions';
+import { addToCart } from '../app/store/cartActions';
 
 const ProductDetails = () => {
   const navigate = useNavigate();

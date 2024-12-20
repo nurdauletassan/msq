@@ -1,21 +1,21 @@
 import './App.css';
 import React, { useState } from "react"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Landing from './pages/Landing';
-import Shop from './pages/Shop';
-import Login from './pages/Login';
+import Header from '../widgets/header/Header';
+import Footer from '../widgets/footer/Footer';
+import Landing from '../pages/home/Landing';
+import Shop from '../pages/Shop';
+import Login from '../pages/login/Login';
+import Cart from '../pages/Cart';
+import Favourite from '../pages/Favourite';
+import ProductDetails from '../pages/ProductDetails';
+import Register from '../pages/register/Register';
+import BannerDemo from '../widgets/bannerDemo/BannerDemo';
+import AddProducts from '../pages/AddProducts';
+import Address from '../pages/Address';
+import { LoadingProvider } from './context/LoadingContext';
+import LoadingSpinner from '../shared/ui/LoadingSpinner/LoadingSpinner';
 
-import Cart from './pages/Cart';
-import Favourite from './pages/Favourite';
-
-import ProductDetails from './pages/ProductDetails';
-import Register from './pages/Register';
-import BannerDemo from './components/BannerDemo';
-import AddProducts from './pages/AddProducts';
-
-import Address from './pages/Address';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -24,9 +24,9 @@ function App() {
     setCart((prevCart) => [...prevCart, product]);
   };
   return (
-
-    <Router>
-      <div>
+    <LoadingProvider>
+      <Router>
+        <LoadingSpinner />
         <BannerDemo />
         <Header />
         <Routes>
@@ -41,10 +41,8 @@ function App() {
           <Route path='/address' element={<Address />} />
         </Routes>
         <Footer />
-
-      </div>
-    </Router>
-
+      </Router>
+    </LoadingProvider>
   );
 }
 

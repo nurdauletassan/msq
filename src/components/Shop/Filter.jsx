@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import './Filter.css'
-import filter from '../../images/filter.svg'
-import arrow from '../../images/blackarrow.svg'
-import rightarrow from '../../images/rightarrow.svg'
+import filter from '../../shared/images/filter.svg'
+import arrow from '../../shared/images/blackarrow.svg'
+import rightarrow from '../../shared/images/rightarrow.svg'
 import Slider from '@mui/material/Slider';
 import Colors from './Colors'
 import Sizes from './Sizes'

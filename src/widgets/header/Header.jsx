@@ -1,11 +1,11 @@
 import React, { useState, useRef } from 'react';
 import './Header.css'; // Импортировать ваш CSS файл
-import SearchBar from './SearchBar';
-import ShopDropdown from './ShopDropdown'; // Импортируем компонент выпадающего списка
-import arrow from '../images/arrow.svg';
-import cart from '../images/cart.svg';
-import profile from '../images/profile.svg';
-import CartModal from './CartModal';
+import SearchBar from '../../shared/ui/SearchBar/SearchBar';
+import ShopDropdown from '../../shared/ui/ShopDropdown/ShopDropdown'; // Импортируем компонент выпадающего списка
+import arrow from '../../shared/images/arrow.svg';
+import cart from '../../shared/images/cart.svg';
+import profile from '../../shared/images/profile.svg';
+import CartModal from '../../components/CartModal';
 
 const Header = () => {
   const [isShopDropdownOpen, setShopDropdownOpen] = useState(false);
