@@ -18,11 +18,6 @@ import LoadingSpinner from '../shared/ui/LoadingSpinner/LoadingSpinner';
 
 
 function App() {
-  const [cart, setCart] = useState([]);
-
-  const addToCart = (product) => {
-    setCart((prevCart) => [...prevCart, product]);
-  };
   return (
     <LoadingProvider>
       <Router>
@@ -35,7 +30,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/favourite' element={<Favourite />} />
-          <Route path="/shop/:id" element={<ProductDetails addToCart={addToCart} />} />
+          <Route path="/shop/:id" element={<ProductDetails />} />
           <Route path='/register' element={<Register />} />
 
           <Route path='/address' element={<Address />} />

@@ -6,13 +6,16 @@ import arrow from '../../shared/images/arrow.svg';
 import cart from '../../shared/images/cart.svg';
 import profile from '../../shared/images/profile.svg';
 import CartModal from '../../components/CartModal';
+import { useSelector } from 'react-redux';
+
 
 const Header = () => {
+  const totalItems = useSelector((state) => state.cart.total);
   const [isShopDropdownOpen, setShopDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
   const [cartItems, setCartItems] = useState([]); // Состояние для хранения товаров в корзине
   const [isCartModalOpen, setCartModalOpen] = useState(false); // Состояние для модального окна корзины
-  
+
 
   const handleMouseEnter = () => {
     setShopDropdownOpen(true);
@@ -37,9 +40,10 @@ const Header = () => {
 
   return (
     <header className="header">
+
       <div className="header-logo">
         <a href="/" className="logo-link">
-          <h1 className="logo-text">MSQ</h1>
+          <h1 className="logo-text">MSQ </h1>
         </a>
       </div>
 
@@ -65,15 +69,20 @@ const Header = () => {
         <a href="/contact" className="header-link">Contact</a>
         <a href="/contact" className="header-link">On Sale</a>
       </nav>
-
       <SearchBar />
       <nav className='cart-profile'>
-        <a  onClick={handleCartClick}>
-          <img src={cart} alt="" />
-        </a>
-        <a href="">
-          <img src={profile} alt="" />
-        </a>
+        <div className="cart-container">
+          <a onClick={handleCartClick}>
+            <img src={cart} alt="Cart" />
+          </a>
+          {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
+        </div>
+        <div className="cart-container">
+          <a href="">
+            <img src={profile} alt="profile" />
+          </a>
+        </div>
+
       </nav>
       <CartModal isOpen={isCartModalOpen} onClose={closeCartModal} />
     </header>

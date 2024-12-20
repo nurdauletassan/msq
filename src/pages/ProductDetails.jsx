@@ -6,11 +6,12 @@ import rating from "../shared/images/rating.svg";
 import likes from "../shared/images/likes.svg";
 import Modal from "../components/ProductDetails/Modal";
 import "./ProductDetails.css";
-import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../app/store/cartActions';
+import { useDispatch } from 'react-redux';
+import { addItem } from "../app/context/CartReducer";
 
 const ProductDetails = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { id } = useParams(); // Получаем ID из маршрута
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -19,12 +20,15 @@ const ProductDetails = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0); // Текущее отображаемое изображение
   const [buttonText, setButtonText] = useState("Add to Cart");
+<<<<<<< HEAD
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
 
   const getCartItemCount = () => {
     return cartItems.length;
   };
+=======
+>>>>>>> dda6706 (fix)
 
   const handleSizeClick = (index) => {
     setSelectedSizeIndex(index);
@@ -45,7 +49,9 @@ const ProductDetails = () => {
   const handleImageClick = (index) => {
     setCurrentImage(index);
   };
+  
   const handleAddToCart = () => {
+<<<<<<< HEAD
     if (selectedSizeIndex === null) {
       // Display visual feedback instead of an alert
       document.getElementById("size-message").innerText = "Please select a size first.";
@@ -53,6 +59,10 @@ const ProductDetails = () => {
     }
     if (product) {
       dispatch(addToCart(product));
+=======
+    if (buttonText === "Add to Cart" && product) {
+      dispatch(addItem(product));
+>>>>>>> dda6706 (fix)
       setButtonText("In Cart");
       document.getElementById("size-message").innerText = ""; // Clear message when a size is selected and product is added to the cart
    

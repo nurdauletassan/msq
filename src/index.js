@@ -1,15 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Provider } from "react-redux";
-import useStore from "./app/store/useStore";
 import "./index.css";
 import App from "./app/App";
+import { Provider } from 'react-redux';
+import { store } from "./app/store/useCart";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Provider store={useStore}>
+    <Provider store={store}>
       <App />
-    </Provider>
+    </Provider>,
   </React.StrictMode>
 );
+
