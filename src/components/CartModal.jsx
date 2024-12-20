@@ -37,11 +37,13 @@ const CartModal = ({ isOpen, onClose }) => {
         <div className='cart-modal-products'>
           {cartItems.length > 0 ? (
             <>
-              <div className="cart-modal-items">
+            <div className="cart-modal-items">
         {cartItems.map((item) => (
           <CartItem key={item.id} item={item} />
+
         ))}
       </div>
+  
               
 
             </>
