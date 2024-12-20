@@ -6,12 +6,13 @@ import rating from "../../shared/images/rating.svg";
 import likes from "../../shared/images/likes.svg";
 import Modal from "../../components/ProductDetails/Modal";
 import "./ProductDetails.css";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from "../../app/context/CartReducer";
 import { useLoading } from "../../app/context/LoadingContext";
 import { useNotification } from "../../app/context/NotificationContext";
 
 const ProductDetails = () => {
+  const cartItems = useSelector((state) => state.cart.items);
   const { addNotification } = useNotification();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -44,19 +45,26 @@ const ProductDetails = () => {
   const handleImageClick = (index) => {
     setCurrentImage(index);
   };
-  
+
   const handleAddToCart = () => {
-    if(!selectedSizeIndex){
+    if (buttonText === 'In Cart') {
+      navigate("/cart");
+    }
+    if (selectedSizeIndex === null) {
       addNotification('Please, select size!', 'error');
       return;
     }
-    if (buttonText === "Add to Cart" && selectedSizeIndex) {
-      dispatch(addItem(product));
+    if (buttonText === "Add to Cart" && selectedSizeIndex !== null) {
+
+      const productToAdd = {
+        ...product,
+        size: product.sizes[selectedSizeIndex], // Include the selected size
+      };
+
+      dispatch(addItem(productToAdd));
+      addNotification('Successfully added to the cart', 'success');
       setButtonText("In Cart");
       document.getElementById("size-message").innerText = ""; // Clear message when a size is selected and product is added to the cart
-   
-    } else {
-      navigate("/cart");
     }
   };
 
@@ -81,6 +89,15 @@ const ProductDetails = () => {
 
     fetchProduct();
   }, [id]);
+
+  useEffect(() => {
+    if (product) {
+      const productInCart = cartItems.some((item) => item.id === product.id);
+      if (productInCart) {
+        setButtonText("In Cart");
+      }
+    }
+  }, [product])
 
   if (loading) return <p></p>;
   if (error) return <p>Error: {error}</p>;
@@ -132,9 +149,8 @@ const ProductDetails = () => {
                   <div
                     key={index}
                     onClick={() => handleSizeClick(index)}
-                    className={`size-box ${
-                      selectedSizeIndex === index ? "selected" : ""
-                    }`}
+                    className={`size-box ${selectedSizeIndex === index ? "selected" : ""
+                      }`}
                   >
                     <span>{size}</span>
                   </div>

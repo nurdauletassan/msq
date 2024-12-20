@@ -17,7 +17,8 @@ const CartItem = ({ item }) => {
         <div className="cart-image"><img src={item.images[0]} alt="" /></div>
         <div className="cart-info">
           <h4>{item.title}</h4>
-          <p>{item.description}</p>
+          <p>{item.description} ({item.size})</p>
+
         </div>
       </div>
 
