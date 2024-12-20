@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import './CartModal.css';
+import close from '../images/close.svg'
+import bigCart from '../images/bigCart.svg'
 
 const CartModal = ({ isOpen, onClose }) => {
   useEffect(() => {
@@ -25,10 +27,15 @@ const CartModal = ({ isOpen, onClose }) => {
   return (
     <div className="cart-modal">
       <div className="cart-modal-content">
-        <button className="close-button" onClick={onClose}>X</button>
-        <h2>Ваша корзина пуста</h2>
-        <p>Исправить это просто: выберите в каталоге интересующий товар и нажмите кнопку «В корзину».</p>
-        <button onClick={onClose}>Перейти в магазин</button>
+        <div className='cart-modal-title'>Cart</div>
+        <img src={close} alt="" onClick={onClose}/>
+        <div className='cart-modal-products'>
+          <img src="" alt="" />
+        </div>
+        
+       
+        
+  
       </div>
     </div>
   );

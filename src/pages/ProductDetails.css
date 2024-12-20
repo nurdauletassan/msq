@@ -149,3 +149,9 @@ width: 480px;
     display: flex;
     gap: 20px;
 }
+.size-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  

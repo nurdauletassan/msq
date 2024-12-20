@@ -19,7 +19,6 @@ const ProductDetails = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0); // Текущее отображаемое изображение
   const [buttonText, setButtonText] = useState("Add to Cart");
-
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
 
@@ -47,11 +46,16 @@ const ProductDetails = () => {
     setCurrentImage(index);
   };
   const handleAddToCart = () => {
-    if (buttonText === "Add to Cart" && product) {
-        console.log(product);
+    if (selectedSizeIndex === null) {
+      // Display visual feedback instead of an alert
+      document.getElementById("size-message").innerText = "Please select a size first.";
+      return;
+    }
+    if (product) {
       dispatch(addToCart(product));
-      console.log(cartItems.length);
       setButtonText("In Cart");
+      document.getElementById("size-message").innerText = ""; // Clear message when a size is selected and product is added to the cart
+   
     } else {
       navigate("/cart");
     }
@@ -137,6 +141,7 @@ const ProductDetails = () => {
                 <p>No sizes available</p>
               )}
             </div>
+            <p id="size-message" className="size-message"></p>
           </div>
           <div className="add-likes">
             <button className="add-to-cart" onClick={handleAddToCart}>
