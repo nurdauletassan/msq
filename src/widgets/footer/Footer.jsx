@@ -1,8 +1,8 @@
 import React from 'react'
 import './Footer.css'
-import vklogo from '../images/vklogo.svg'
-import tglogo from '../images/tglogo.svg'
-import youtubelogo from '../images/youtubelogo.svg'
+import vklogo from '../../shared/images/vklogo.svg'
+import tglogo from '../../shared/images/tglogo.svg'
+import youtubelogo from '../../shared/images/youtubelogo.svg'
 
 
 function Footer() {
