@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Breadcrumb from "../shared/ui/Breadcrump/Breadcrumb";
-import db from "../app/config/FirebaseConfig";
-import rating from "../shared/images/rating.svg";
-import likes from "../shared/images/likes.svg";
-import Modal from "../components/ProductDetails/Modal";
+import Breadcrumb from "../../shared/ui/Breadcrump/Breadcrumb";
+import db from "../../app/config/FirebaseConfig";
+import rating from "../../shared/images/rating.svg";
+import likes from "../../shared/images/likes.svg";
+import Modal from "../../components/ProductDetails/Modal";
 import "./ProductDetails.css";
 import { useDispatch } from 'react-redux';
-import { addItem } from "../app/context/CartReducer";
+import { addItem } from "../../app/context/CartReducer";
+import { useLoading } from "../../app/context/LoadingContext";
+import { useNotification } from "../../app/context/NotificationContext";
 
 const ProductDetails = () => {
+  const { addNotification } = useNotification();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { startLoading, stopLoading } = useLoading();
   const { id } = useParams(); // Получаем ID из маршрута
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -20,15 +24,6 @@ const ProductDetails = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0); // Текущее отображаемое изображение
   const [buttonText, setButtonText] = useState("Add to Cart");
-<<<<<<< HEAD
-  const dispatch = useDispatch();
-  const cartItems = useSelector((state) => state.cart.items);
-
-  const getCartItemCount = () => {
-    return cartItems.length;
-  };
-=======
->>>>>>> dda6706 (fix)
 
   const handleSizeClick = (index) => {
     setSelectedSizeIndex(index);
@@ -51,18 +46,12 @@ const ProductDetails = () => {
   };
   
   const handleAddToCart = () => {
-<<<<<<< HEAD
-    if (selectedSizeIndex === null) {
-      // Display visual feedback instead of an alert
-      document.getElementById("size-message").innerText = "Please select a size first.";
+    if(!selectedSizeIndex){
+      addNotification('Please, select size!', 'error');
       return;
     }
-    if (product) {
-      dispatch(addToCart(product));
-=======
-    if (buttonText === "Add to Cart" && product) {
+    if (buttonText === "Add to Cart" && selectedSizeIndex) {
       dispatch(addItem(product));
->>>>>>> dda6706 (fix)
       setButtonText("In Cart");
       document.getElementById("size-message").innerText = ""; // Clear message when a size is selected and product is added to the cart
    
@@ -72,6 +61,7 @@ const ProductDetails = () => {
   };
 
   useEffect(() => {
+    startLoading();
     const fetchProduct = async () => {
       try {
         const doc = await db.collection("Products").doc(id).get();
@@ -84,13 +74,15 @@ const ProductDetails = () => {
         console.error("Error fetching product:", err);
         setError(err.message);
         setLoading(false);
+      } finally {
+        stopLoading();
       }
     };
 
     fetchProduct();
   }, [id]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p></p>;
   if (error) return <p>Error: {error}</p>;
 
   return (

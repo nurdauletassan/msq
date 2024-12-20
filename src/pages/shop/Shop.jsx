@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Filter from "../components/Shop/Filter";
-import Breadcrumb from "../shared/ui/Breadcrump/Breadcrumb";
-import ProductCard from '../components/Shop/ProductCard';
+import Filter from "../../components/Shop/Filter";
+import Breadcrumb from "../../shared/ui/Breadcrump/Breadcrumb";
+import ProductCard from '../../components/Shop/ProductCard';
 import "./Shop.css";
-import db from "../app/config/FirebaseConfig";
-import { useLoading } from "../app/context/LoadingContext";
+import db from "../../app/config/FirebaseConfig";
+import { useLoading } from "../../app/context/LoadingContext";
 
 const ShopPage = () => {
   const [products, setProducts] = useState([]);
