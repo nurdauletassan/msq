@@ -5,6 +5,7 @@ import bigCart from '../shared/images/bigCart.svg'
 import ShopButton from './Landing/ShopButton';
 import { useSelector } from 'react-redux';
 import image from '../shared/images/landingImage.png'
+import CartItem from '../entity/CartItem/CartItem';
 
 const CartModal = ({ isOpen, onClose }) => {
   useEffect(() => {
@@ -34,41 +35,13 @@ const CartModal = ({ isOpen, onClose }) => {
         <div className='cart-modal-title'>Cart</div>
         <img className='cart-close' src={close} alt="" onClick={onClose}/>
         <div className='cart-modal-products'>
-          {cartItems.length === 0 ? (
+          {cartItems.length > 0 ? (
             <>
-              {/* {cartItems.map((item, index) => (
-                <div key={index} className="cart-item">
-                  <img src={item.image} alt={item.title} />
-                  <p>{item.title}</p>
-                  <p>{item.price}</p>
-                </div>
-              ))} */}
-
-               
-              
-              
-                <div className='cart-products-total'>
-                <div  className="cart-modal-item">
-                  <img src={image} alt=''/>
-                  <div>
-                    <p>кросовка (размер:43)</p>
-                    
-                  </div>
-                  
-                 
-                </div>
-                <div className='cart-total'>
-                  <span>
-                    <img src={close} alt="" />
-                    <p>Очистить</p>
-                  </span>
-                  <span>
-                    <p>Итого</p>
-                    <p>54390тг</p>
-                  </span>
-
-                </div>
-                </div>
+              <div className="cart-modal-items">
+        {cartItems.map((item) => (
+          <CartItem key={item.id} item={item} />
+        ))}
+      </div>
               
 
             </>
