@@ -19,7 +19,7 @@ const Login = () => {
                 type="email"
                 id="email"
                 value={email}
-                placeholder="E-MAIL"
+                placeholder="e-mail"
                 onChange={(e) => setEmail(e.target.value)}
                 onFocus={() => setEmailFocus(true)}
                 onBlur={() => !email && setEmailFocus(false)} // Remove focus if the field is empty
@@ -36,7 +36,7 @@ const Login = () => {
                 type="password"
                 id="password"
                 value={password}
-                placeholder="PASSWORD"
+                placeholder="password"
                 onChange={(e) => setPassword(e.target.value)}
                 onFocus={() => setPasswordFocus(true)}
                 onBlur={() => !password && setPasswordFocus(false)} // Remove focus if the field is empty

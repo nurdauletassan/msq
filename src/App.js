@@ -15,6 +15,7 @@ import Register from './pages/Register';
 import BannerDemo from './components/BannerDemo';
 import AddProducts from './pages/AddProducts';
 
+import Address from './pages/Address';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -23,26 +24,27 @@ function App() {
     setCart((prevCart) => [...prevCart, product]);
   };
   return (
- 
+
     <Router>
-      <div> 
-        <BannerDemo/>
-        <Header/>
+      <div>
+        <BannerDemo />
+        <Header />
         <Routes>
-          <Route path='/' element={<Landing/>}/>
-          <Route path='/shop' element={<Shop/>}/>
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/cart' element={<Cart/>}/>
-          <Route path='/favourite' element={<Favourite/>}/>
+          <Route path='/' element={<Landing />} />
+          <Route path='/shop' element={<Shop />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='/favourite' element={<Favourite />} />
           <Route path="/shop/:id" element={<ProductDetails addToCart={addToCart} />} />
-          <Route path='/register' element={<Register/>}/>
-       
+          <Route path='/register' element={<Register />} />
+
+          <Route path='/address' element={<Address />} />
         </Routes>
-        <Footer/>
-        
+        <Footer />
+
       </div>
     </Router>
-  
+
   );
 }
 
