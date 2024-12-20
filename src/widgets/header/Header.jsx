@@ -82,7 +82,6 @@ const Header = () => {
             <img src={profile} alt="profile" />
           </a>
         </div>
-
       </nav>
       <CartModal isOpen={isCartModalOpen} onClose={closeCartModal} />
     </header>

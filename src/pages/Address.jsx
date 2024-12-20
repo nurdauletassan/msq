@@ -1,7 +1,18 @@
 import React, { useState } from "react";
 import "./Address.css";
+import PaymentModal from "../features/paymentSystem/PaymentModal";
 
 const Address = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   const [formData, setFormData] = useState({
     firstName: "",
     companyName: "",
@@ -153,6 +164,11 @@ const Address = () => {
         <button className="place-order-btn" onClick={handleSubmit}>
           Place Order
         </button>
+        <button onClick={handleOpenModal} style={{ padding: '10px 20px', fontSize: '16px' }}>
+          Open Payment Modal
+        </button>
+
+        <PaymentModal open={isModalOpen} onClose={handleCloseModal} />
       </div>
     </div>
   );

@@ -2,12 +2,17 @@ import React from 'react'
 import ShopButton from '../../components/Landing/ShopButton'
 import './Landing.css'
 import man from '../../shared/images/landingImage.png'
+import LanguageSwitcher from '../../features/i18n/Locale';
+import { useTranslation } from 'react-i18next';
 
 function Landing() {
+  const { t } = useTranslation();
+
   return (
     <div className='landing-main'>
       <div className='landing-title'>
-      <h2 className="text-4xl lg:text-[64px] lg:leading-[64px] mb-5 lg:mb-8">FIND CLOTHES THAT MATCHES YOUR STYLE</h2>
+      <h2 className="text-4xl lg:text-[64px] lg:leading-[64px] mb-5 lg:mb-8">{t('translations:asd')}</h2>
+      <LanguageSwitcher />
       <p className="text-black/60 text-sm lg:text-base mb-6 lg:mb-8 max-w-[545px]">Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</p>
       <ShopButton/>   
       <div className='number-info'>
