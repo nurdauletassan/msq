@@ -2,35 +2,36 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Filter from "../components/Shop/Filter";
 import Breadcrumb from "../components/Breadcrumb";
-import ProductCard from '../components/Shop/ProductCard'
+import ProductCard from '../components/Shop/ProductCard';
 import "./Shop.css";
+import db from "../config/FirebaseConfig";
 
 const ShopPage = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
 
   useEffect(() => {
-    fetch(
-      "https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/products/list?country=us&lang=en&currentpage=0&pagesize=36&categories=men_all&concepts=H%26M%20MAN",
-      {
-        method: "GET",
-        headers: {
-          "x-rapidapi-key": "a9a219b4demsh9614127a3b49660p172d1ajsnb5491c223e96",
-          "x-rapidapi-host": "apidojo-hm-hennes-mauritz-v1.p.rapidapi.com",
-        },
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setProducts(data.results);
+    const fetchProductsFromFirebase = async () => {
+      try {
+        const snapshot = await db.collection('Products').get();
+        if (snapshot.empty) {
+          throw new Error('No products found.');
+        }
+        const productsList = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setProducts(productsList);
         setLoading(false);
-      })
-      .catch((err) => {
+      } catch (err) {
+        console.error("Error fetching products:", err);
         setError(err.message);
         setLoading(false);
-      });
+      }
+    };
+
+    fetchProductsFromFirebase();
   }, []);
 
   if (loading) return <p>Loading...</p>;
@@ -42,14 +43,13 @@ const ShopPage = () => {
       <div className="filter-catalog">
         <Filter />
         <div className="products-grid">
-          {products.map((product, index) => (
+          {products.map((product) => (
             <Link
-              to={`/shop/${product.articleCode}`}
-              key={product.articleCode}
+              to={`/shop/${product.id}`} // Assuming `id` is your unique identifier for the product
+              key={product.id}
               style={{ textDecoration: "none" }}
             >
-              <ProductCard key={product.articleCode || index} product={product} />
-              
+              <ProductCard product={product} />
             </Link>
           ))}
         </div>
@@ -59,4 +59,3 @@ const ShopPage = () => {
 };
 
 export default ShopPage;
-  

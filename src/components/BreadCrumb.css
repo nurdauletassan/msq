@@ -1,0 +1,9 @@
+.breadcrumb {
+    display: flex;
+  }
+  
+  .breadcrumb-item + .breadcrumb-item::before {
+    content: '>';
+    padding: 0 7px;
+  }
+  

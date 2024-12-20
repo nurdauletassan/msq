@@ -5,10 +5,14 @@ import ShopDropdown from './ShopDropdown'; // Импортируем компо�
 import arrow from '../images/arrow.svg';
 import cart from '../images/cart.svg';
 import profile from '../images/profile.svg';
+import CartModal from './CartModal';
 
 const Header = () => {
   const [isShopDropdownOpen, setShopDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const [cartItems, setCartItems] = useState([]); // Состояние для хранения товаров в корзине
+  const [isCartModalOpen, setCartModalOpen] = useState(false); // Состояние для модального окна корзины
+  
 
   const handleMouseEnter = () => {
     setShopDropdownOpen(true);
@@ -16,6 +20,19 @@ const Header = () => {
 
   const handleMouseLeave = () => {
     setShopDropdownOpen(false);
+  };
+
+  const handleCartClick = () => {
+    if (cartItems.length === 0) {
+      setCartModalOpen(true);
+    } else {
+      // Показать список товаров в корзине
+      console.log('Cart Items:', cartItems);
+      // Ваша логика для отображения списка товаров в корзине
+    }
+  };
+  const closeCartModal = () => {
+    setCartModalOpen(false);
   };
 
   return (
@@ -51,13 +68,14 @@ const Header = () => {
 
       <SearchBar />
       <nav className='cart-profile'>
-        <a href="">
+        <a  onClick={handleCartClick}>
           <img src={cart} alt="" />
         </a>
         <a href="">
           <img src={profile} alt="" />
         </a>
       </nav>
+      <CartModal isOpen={isCartModalOpen} onClose={closeCartModal} />
     </header>
   );
 };
