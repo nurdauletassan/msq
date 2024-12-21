@@ -36,10 +36,7 @@ function App() {
             <Route path='/favourite' element={<Favourite />} />
             <Route path="/shop/:id" element={<ProductDetails />} />
             <Route path='/register' element={<Register />} />
-<<<<<<< HEAD
             <Route path='/contact' element={<Contact />} />
-=======
->>>>>>> 4e0c634 (bekzhan)
             <Route path='/address' element={<Address />} />
            
           </Routes>

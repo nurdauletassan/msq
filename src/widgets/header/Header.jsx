@@ -72,16 +72,11 @@ const Header = () => {
       </nav>
       <SearchBar />
       <nav className='cart-profile'>
-<<<<<<< HEAD
         <div className="cart-container">
           <LanguageSwitcher />
         </div>
-        <div className="cart-container">
-          <a onClick={handleCartClick}>
-=======
         <div className="cart-container" onClick={handleCartClick}>
           <a >
->>>>>>> 4e0c634 (bekzhan)
             <img src={cart} alt="Cart" />
           </a>
           {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
