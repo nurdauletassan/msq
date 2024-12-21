@@ -3,5 +3,8 @@
     "description": "Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.",
     "brands":"International Brands",
     "quality":"High-Quality Products",
-    "customers":"Happy Customers"
+    "customers":"Happy Customers",
+    "message": "Get the most out of your app with real-time updates and analytics",
+    "login": "Login",
+    "shop":"Shop now"
 }

@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Eclipse } from "lucide-react";
+import { useTranslation } from 'react-i18next';
 
 function BannerDemo() {
+  const { t } = useTranslation();
   // Replace with actual authentication logic to check user status
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -15,10 +17,10 @@ function BannerDemo() {
             strokeWidth={2}
             aria-hidden="true"
           />
-          Get the most out of your app with real-time updates and analytics{" "}
+          {t('translation:message')}
           <span className="text-muted-foreground">·</span>{" "}
           <a href="/login" className="font-medium underline hover:no-underline">
-            Login
+            {t('translation:login')}
           </a>
         </p>
       </div>
