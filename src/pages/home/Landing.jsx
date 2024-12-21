@@ -1,9 +1,13 @@
 import React from 'react'
 import ShopButton from '../../components/Landing/ShopButton'
 import './Landing.css'
+<<<<<<< HEAD
 import man from '../../shared/images/landingImage.png'
 import LanguageSwitcher from '../../features/i18n/Locale';
 import { useTranslation } from 'react-i18next';
+=======
+import shoes from '../../shared/images/Nike.png'
+>>>>>>> 4e0c634 (bekzhan)
 
 function Landing() {
   const { t } = useTranslation();
@@ -36,7 +40,7 @@ function Landing() {
       </div>
       
       <div className='landing-image'> 
-        <img src={man} alt="" />
+        <img src={shoes} alt="" />
 
       </div>
       <div>
