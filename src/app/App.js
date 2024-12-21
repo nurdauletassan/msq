@@ -7,6 +7,7 @@ import Landing from '../pages/home/Landing';
 import Shop from '../pages/shop/Shop';
 import Login from '../pages/login/Login';
 import Cart from '../pages/Cart';
+import Contact from '../pages/contact/Contact'
 import Favourite from '../pages/Favourite';
 import ProductDetails from '../pages/productDetails/ProductDetails';
 import Register from '../pages/register/Register';
@@ -34,7 +35,7 @@ function App() {
             <Route path='/favourite' element={<Favourite />} />
             <Route path="/shop/:id" element={<ProductDetails />} />
             <Route path='/register' element={<Register />} />
-
+            <Route path='/contact' element={<Contact />} />
             <Route path='/address' element={<Address />} />
           </Routes>
           <Footer />
