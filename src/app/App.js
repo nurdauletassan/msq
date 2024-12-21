@@ -12,11 +12,12 @@ import Favourite from '../pages/Favourite';
 import ProductDetails from '../pages/productDetails/ProductDetails';
 import Register from '../pages/register/Register';
 import BannerDemo from '../widgets/bannerDemo/BannerDemo';
-import AddProducts from '../pages/AddProducts';
+
 import Address from '../pages/Address';
 import { LoadingProvider } from './context/LoadingContext';
 import { NotificationProvider } from './context/NotificationContext';
 import LoadingSpinner from '../shared/ui/LoadingSpinner/LoadingSpinner';
+
 
 
 function App() {
@@ -35,12 +36,16 @@ function App() {
             <Route path='/favourite' element={<Favourite />} />
             <Route path="/shop/:id" element={<ProductDetails />} />
             <Route path='/register' element={<Register />} />
+<<<<<<< HEAD
             <Route path='/contact' element={<Contact />} />
+=======
+>>>>>>> 4e0c634 (bekzhan)
             <Route path='/address' element={<Address />} />
+           
           </Routes>
           <Footer />
         </Router>
-      </NotificationProvider>,
+      </NotificationProvider>
     </LoadingProvider>
   );
 }
