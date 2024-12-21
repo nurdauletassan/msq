@@ -7,6 +7,7 @@ import cart from '../../shared/images/cart.svg';
 import profile from '../../shared/images/profile.svg';
 import CartModal from '../../components/CartModal';
 import { useSelector } from 'react-redux';
+import LanguageSwitcher from '../../features/i18n/Locale';
 
 
 const Header = () => {
@@ -71,6 +72,9 @@ const Header = () => {
       </nav>
       <SearchBar />
       <nav className='cart-profile'>
+        <div className="cart-container">
+          <LanguageSwitcher />
+        </div>
         <div className="cart-container">
           <a onClick={handleCartClick}>
             <img src={cart} alt="Cart" />

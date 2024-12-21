@@ -34,6 +34,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "dev": "set PORT=1234 && react-scripts start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

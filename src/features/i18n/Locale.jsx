@@ -1,19 +1,27 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
+  const [selectedLang, setSelectedLang] = useState(i18n.language);
 
-  // Function to change language
-  const changeLanguage = (lang) => {
-    i18n.changeLanguage(lang);
-  };
+  const onChangeLanguage = useCallback(
+    (lang) => {
+      i18n.changeLanguage(lang);
+      setSelectedLang(lang);
+    },
+    [i18n]
+  );
 
   return (
-    <div>
-      <button onClick={() => changeLanguage('en')}>English</button>
-      <button onClick={() => changeLanguage('ru')}>Русский</button>
-    </div>
+    <select
+      className="rounded-lg bg-black text-white cursor-pointer focus:border-none transition duration-200"
+      value={selectedLang}
+      onChange={(e) => onChangeLanguage(e.target.value)}
+    >
+      <option value="en" className='cursor-pointer'>EN</option>
+      <option value="ru" className='cursor-pointer'>РУ</option>
+    </select>
   );
 };
 
